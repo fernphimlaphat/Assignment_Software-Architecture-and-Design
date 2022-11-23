@@ -34,7 +34,6 @@
         ?>
         <button type="submit" name="updated" class="btn btn-success">ยืนยัน</button>
     </form>
-
     <script>
     $(function() {
         $(".datatable").DataTable();
@@ -53,12 +52,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
