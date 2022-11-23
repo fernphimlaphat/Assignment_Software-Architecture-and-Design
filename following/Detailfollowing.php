@@ -34,6 +34,7 @@
         ?>
         <button type="submit" name="updated" class="btn btn-success">ยืนยัน</button>
     </form>
+
     <script>
     $(function() {
         $(".datatable").DataTable();
@@ -52,3 +53,38 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+<?php
+include_once('functions.php');
+$updatedata = new UpdateToFollowup();
+if (isset($_POST['updated'])) {
+    $id = $_GET['p_id'];
+    $p_level = $_POST['p_level'];
+
+    $sql = $updatedata->updated($p_level, $id);
+    if ($sql) {
+        echo "<script>alert('Updated Successfully');</script>";
+        echo "<script>window.lozcation.href='newcase.php'</script>";
+    } else {
+        echo "<script>alert('Something went wrong! Please try again');</script>";
+        echo "<script>window.location.href='patient_info.php'</script>";
+    }
+}
+$menu = "Detailfollowing";
+
+?>
+<?php include("header.php"); ?>
+<?php
+include_once('classFollowUP.php');
+$id = $_GET['p_id'];
+$updatepatient = new Fetchonerecord();
+$sql = $updatepatient->fetchonerecord($id);
+?>
